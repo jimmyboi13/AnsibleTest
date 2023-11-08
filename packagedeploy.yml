@@ -1,8 +1,13 @@
----
-- name: Install Packages using Chocolatey and Ansible Tower
-  hosts: windows
-  gather_facts: false
-- name: Install notepadplusplus version 6.6
-  win_chocolatey:
-    name: notepadplusplus
-    version: '6.6'
+ - name: win_chocolatey module
+   hosts: all
+   become: false
+   gather_facts: false
+   vars:
+     - packages:
+         - 7zip
+         
+   tasks:
+     - name: install packages
+       chocolatey.chocolatey.win_chocolatey:
+         name: "{{ packages }}"
+         state: present
