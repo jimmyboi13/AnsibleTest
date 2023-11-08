@@ -2,9 +2,6 @@
    hosts: all
    become: false
    gather_facts: false
-   vars:
-     - packages:
-         - 7zip
          
    tasks:
      - name: install packages
