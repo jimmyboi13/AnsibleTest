@@ -9,6 +9,6 @@
   tasks:
 
     - name Install chocolatey packages
-      chocolatey.chocolatey.win_chocolatey:
-        name: "{{ item }}"
-      loop: "{{ choco_packages }}"
+  chocolatey.chocolatey.win_chocolatey:
+       name: "{{ item }}"
+       loop: "{{ choco_packages }}"
